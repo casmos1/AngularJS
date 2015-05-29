@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html ng-app>
+<html ng-app> <!-- ng-app will auto-bootstrap the AngularJS application -->
 <head>
     <title>Dive Log (Angular JS)</title>
   <link href="/Content/bootstrap.css" rel="stylesheet"/>
@@ -27,7 +27,7 @@
        depth 98,
        time 62
        }]">
-    <div class="ng-repeat=dive in dives">
+    <div ng-repeat="dive in dives">
       <h3>{{dive.site}}</h3>
       <h4>{{dive.location}}</h4>
       <h2>{{dive.depth}} feet | {{dive.time}} min</h2>

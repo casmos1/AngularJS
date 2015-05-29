@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html ng-app="diveLog">
+<head>
+    <title>Dive Log (ng-controller)</title>
+  <link href="/Content/bootstrap-superhero-blue-theme.css" rel="stylesheet" />
+</head>
+<body>
+<div class="container-fluid">
+  <h1>My Latest Dives (ng-controller)</h1>
+  <div class="row" ng-controller="diveLogCtrl"> <!-- The ngController directive attaches a controller class to the view. This is a key aspect of how angular supports the principles behind the Model-View-Controller design pattern.-->
+    <div ng-repeat="dive in dives" class="col-sm-4">
+      <h3>{{dive.site}}</h3>
+      <h4>{{dive.location}}</h4>
+      <h2>{{dive.depth}} feet | {{dive.time}} min</h2>
+    </div>
+  </div>
+</div>
+<script src="/Scripts/angular.min.js"></script>
+<script src="dives.js"></script>
+<script>
+
+  var app = angular.module('diveLog', []);
+  app.controller('diveLogCtrl', function($scope) {
+    $scope.dives = dives;
+  });
+</script>
+</body>
+</html>

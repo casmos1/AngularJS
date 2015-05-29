@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html ng-app="diveLog">
+<head>
+    <title>Dive Log (ng-controller)</title>
+  <link href="/Content/bootstrap-superhero-blue-theme.css" rel="stylesheet" />
+</head>
+<body>
+<div class="container-fluid">
+  <h1>My Latest Dives (ng-controller)</h1>
+  <div class="row" ng-controller="diveLogCtrl">
+    <div class="col-sm-4 col-sm-offset-8">
+      <input class="form-control input-lg" placeholder="Search" ng-model="searchKey" />
+    </div>
+    <div ng-repeat="dive in dives | filter:searchKey" class="col-sm-4">
+      <h3>{{dive.site}}</h3>
+      <h4>{{dive.location}}</h4>
+      <h2>{{dive.depth}} feet | {{dive.time}} min</h2>
+    </div>
+  </div>
+</div>
+<script src="/Scripts/angular.min.js"></script>
+<script src="dives.js"></script>
+<script>
+
+  var app = angular.module('diveLog', []);
+  app.controller('diveLogCtrl', function($scope) {
+    $scope.dives = dives;
+  });
+</script>
+</body>
+</html>
